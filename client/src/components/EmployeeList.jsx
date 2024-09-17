@@ -25,10 +25,10 @@ const EmployeeList = () => {
 	};
 
 	return (
-		<div className="w-screen">
-		<p className="bg-red-400 text-center font-bold text-4xl p-5"> Employee List</p>
-			<p className="bg-blue-200 text-4xl p-2"><b>Total Count : {infoFromDB.length}</b></p>
-			<div className="bg-yellow-200 flex gap-24 justify-center">
+		<div className="bg-lime-200 w-screen h-screen">
+		<p className="bg-lime-500 text-stone-800 font-eczar text-center font-bold text-4xl p-5"> Employee List</p>
+			<p className="bg-lime-200 text-stone-800 font-eczar text-4xl p-2"><b>No of Employee : {infoFromDB.length}</b></p>
+			<div className="bg-lime-200 flex gap-28 justify-center">
 			<table>
 				<thead className="border border-black w-screen">
 					<tr>
@@ -43,10 +43,10 @@ const EmployeeList = () => {
 						<th className="px-12 py-2">Action</th>
 					</tr>
 				</thead>
-				<tbody className="text-center text-[15px]">
+				<tbody className="font-eczar text-stone-800 text-center text-[15px]">
 					{infoFromDB.map((item, i) => (
 						<tr key={item.id}>
-							<td className="border-2 border-green-700">{i + 1}</td>
+							<td className="font-eczar text-stone-800 border-2 border-green-700">{i + 1}</td>
 							<td className="border-2 border-green-700">
 								<img src={`backend/Images/${item.image}`} />
 							</td>
@@ -58,8 +58,8 @@ const EmployeeList = () => {
 							<td className="border-2 border-green-700">
 								{item.course[0]},{item.course[1]}
 							</td>
-							<td className="border-2 border-green-700">
-								<Link to={`/edit-employee/${item._id}`}>Edit - </Link>
+							<td className="text-blue-700 border-2 border-green-700">
+								<Link to={`/edit-employee/${item._id}`}><b>Edit </b> </Link>
 								<Button
 									variant="outlined"
 									color="error"

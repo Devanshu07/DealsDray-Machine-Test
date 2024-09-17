@@ -67,13 +67,12 @@ const EditEmployee = () => {
 	};
 
 	return (
-		<div className="bg-blue-200">
-		<p className="bg-yellow-200 text-red-500 text-center font-bold text-4xl p-5">Update Employee Details</p>
-			<div className="bg-red-200 max-w-[940px]  h-[623px] rounded-3xl border-4 border-green-900 mx-auto shadow-xl scale-75 p-[10px]">
-			<h1 className="text-center font-bold text-3xl my-3">Update Employee Data</h1>
-			<div className="bg-rose-50 border-4 border-blue-900 rounded-3xl max-w-[350px] mx-auto my-5 p-10">
+		<div className="bg-lime-200 w-screen h-screen">
+		<p className="bg-lime-500 text-stone-800 font-eczar text-center font-bold text-4xl p-5">Update Employee Details</p>
+			<h1 className="text-stone-800 font-eczar text-center font-bold text-3xl my-3">Update Employee Data</h1>
+			<div className="bg-amber-200 border-4 border-blue-900 rounded-3xl max-w-[450px] mx-auto my-5 p-10">
 				<input
-					className="bg-yellow-200 border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
+					className="bg-lime-200 font-eczar border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
 					placeholder="Enter FullName"
 					type="text"
 					value={name}
@@ -82,7 +81,7 @@ const EditEmployee = () => {
 					}}
 				/>
 				<input
-					className="bg-yellow-200 border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
+					className="bg-lime-200 font-eczar border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
 					placeholder="Enter Email"
 					type="text"
 					value={email}
@@ -91,7 +90,7 @@ const EditEmployee = () => {
 					}}
 				/>
 				<input
-					className="bg-yellow-200 border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
+					className="bg-lime-200 font-eczar border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
 					placeholder="Enter Phone Number"
 					type="text"
 					value={phone}
@@ -102,12 +101,12 @@ const EditEmployee = () => {
 
 				{/* designation dropdown */}
 
-				<label htmlFor="" className="m-1 text-indigo-600"><b>Designation</b></label>
+				<label htmlFor="" className="font-eczar m-1 text-indigo-600"><b>Designation</b></label>
 				<select
 					name="designation"
 					value={designation}
 					onChange={(e) => setDesignation(e.target.value)}
-					className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+					className="block appearance-none w-full bg-lime-200 font-eczar  border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
 					<option value="HR">HR</option>
 					<option value="Manager">Manager</option>
 					<option value="Sales">Sales</option>
@@ -115,7 +114,7 @@ const EditEmployee = () => {
 
 				{/* Gender radio button */}
 
-				<label htmlFor="" className="m-1 text-indigo-600"><b>Gender</b></label>
+				<label htmlFor="" className="font-eczar m-1 text-indigo-600"><b>Gender</b></label>
 				<input
 					type="radio"
 					id="male"
@@ -166,8 +165,8 @@ const EditEmployee = () => {
 					onChange={handleCheckboxChange}
 				/>
 				<label htmlFor="BSC"> BSC </label>
-
-				<label htmlFor="" className="m-1 text-red-600"><b>Upload Your Photo</b></label>
+				<br />
+				<label htmlFor="" className="font-eczar m-1 text-red-600"><b>Upload Your Photo</b></label>
 				<br />
 				<input
 					className=""
@@ -178,12 +177,11 @@ const EditEmployee = () => {
 					}}
 				/>
 				<br />
-				<button className="bg-blue-300 ml-12 rounded-lg m-3 p-3 font-bold" onClick={formHandle}>
+				<button className="bg-lime-400 font-eczar ml-24 rounded-lg m-3 p-3 font-bold" onClick={formHandle}>
 					{" "}
 					Update Changes
 				</button>
 			</div>
-		</div>
 		</div>
 	);
 };

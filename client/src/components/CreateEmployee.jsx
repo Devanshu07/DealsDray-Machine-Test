@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+
 const CreateEmployee = () => {
 	let navigate = useNavigate();
 	let [name, setName] = useState("");
@@ -54,126 +56,123 @@ const CreateEmployee = () => {
 	};
 
 	return (
-		<div className="bg-blue-200">
-		<p className="bg-yellow-200 text-red-500 text-center font-bold text-4xl p-5">Create Employee</p>
+		<div className="bg-lime-200 w-screen h-screen">
+		<p className="bg-lime-500 text-stone-800 font-eczar text-center font-bold text-4xl p-5">Create Employee</p>
 
-			<div className="bg-red-200 max-w-[940px]  h-[623px] rounded-3xl border-4 border-green-900 mx-auto shadow-xl scale-75 p-[10px]">
-			<h1 className="text-center font-bold text-3xl my-3">Create Employee</h1>
-			<div className="bg-rose-50 border-4 border-blue-900 rounded-3xl max-w-[350px] mx-auto my-5 p-10">
-				<input
-					className="bg-yellow-200 border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
-					placeholder="Enter FullName"
-					type="text"
-					value={name}
-					onChange={(e) => {
-						setName(e.target.value);
-					}}
-				/>
-				<input
-					className="bg-yellow-200 border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
-					placeholder="Enter Email"
-					type="text"
-					value={email}
-					onChange={(e) => {
-						setEmail(e.target.value);
-					}}
-				/>
-				<input
-					className="bg-yellow-200 border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
-					placeholder="Enter Phone Number"
-					type="text"
-					value={phone}
-					onChange={(e) => {
-						setPhone(e.target.value);
-					}}
-				/>
-
+			
+		<div className="bg-amber-200 border-4 border-blue-900 rounded-3xl max-w-[450px] mx-auto my-5 p-10">
+			<input
+				className="bg-lime-200 font-eczar border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
+				placeholder="Enter FullName"
+				type="text"
+				value={name}
+				onChange={(e) => {
+					setName(e.target.value);
+				}}
+			/>
+			<input
+				className="bg-lime-200 font-eczar border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
+				placeholder="Enter Email"
+				type="text"
+				value={email}
+				onChange={(e) => {
+					setEmail(e.target.value);
+				}}
+			/>
+			<input
+				className="bg-lime-200 font-eczar border-2 border-violet-400 text-xl text-black my-3 p-1 placeholder-black"
+				placeholder="Enter Phone Number"
+				type="text"
+				value={phone}
+				onChange={(e) => {
+					setPhone(e.target.value);
+				}}
+			/>
+			<br></br>
 				{/* designation dropdown */}
-				<label htmlFor="" className="m-1 text-indigo-600"><b>Designation</b></label>
-				<select
-					onChange={(e) => {
-						setDesignation(e.target.value);
-					}}
-					name="designation"
-					required
-					className="block appearance-auto w-full bg-white border border-gray-400 hover:border-gray-500 px-2 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-					<option value="HR">HR</option>
-					<option value="Manager">Manager</option>
-					<option value="Sales">Sales</option>
-				</select>
+			<label htmlFor="" className="m-1 pb-4 font-eczar text-indigo-600"><b>Designation</b></label>
+			<select
+				onChange={(e) => {
+					setDesignation(e.target.value);
+				}}
+				name="designation"
+				required
+				className="block appearance-auto w-full bg-lime-100 border font-eczar border-gray-400 hover:border-gray-500 px-2 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+				<option value="HR">HR</option>
+				<option value="Manager">Manager</option>
+				<option value="Sales">Sales</option>
+			</select>
 
 				{/* Gender radio button */}
-				<label htmlFor="" className="m-1 text-indigo-600"><b>Gender</b></label>
-				<input
-					type="radio"
-					id="male"
-					name="gender"
-					value={gender}
-					onChange={(e) => {
-						setGender("Male");
-					}}
-				/>
-				<label for="male"> Male </label>
-				<input
-					type="radio"
-					id="female"
-					name="gender"
-					value={gender}
-					onChange={(e) => {
-						setGender("Female");
-					}}
-				/>
-				<label for="female"> Female </label>
-				<br></br>
+			<label htmlFor="" className="font-eczar m-1 text-indigo-600"><b>Gender</b></label>
+			<input
+				type="radio"
+				id="male"
+				name="gender"
+				value={gender}
+				onChange={(e) => {
+					setGender("Male");
+				}}
+			/>
+			<label for="male" className="font-eczar"> Male </label>
+			<input
+				type="radio"
+				id="female"
+				name="gender"
+				value={gender}
+				onChange={(e) => {
+					setGender("Female");
+				}}
+			/>
+			<label for="female" className="font-eczar"> Female </label>
+			<br></br>
 
 				{/* Courses check boxes */}
-				<label className="m-1 text-indigo-600"><b>Course</b></label>
-				<input
-					type="checkbox"
-					id="MCA"
-					name="course"
-					value="MCA"
-					checked={course.includes("MCA")}
-					onChange={handleCourseChange}
-				/>
-				<label for="MCA"> MCA </label>
-				<input
-					type="checkbox"
-					id="BCA"
-					name="course"
-					value="BCA"
-					checked={course.includes("BCA")}
-					onChange={handleCourseChange}
-				/>
-				<label for="BCA"> BCA </label>
-				<input
-					type="checkbox"
-					id="BSC"
-					name="course"
-					value="BSC"
-					checked={course.includes("BSC")}
-					onChange={handleCourseChange}
-				/>
-				<label for="BSC"> BSC </label>
-				<br />
-
+			<label className="font-eczar m-1 text-indigo-600"><b>Course</b></label>
+			<input
+				type="checkbox"
+				id="MCA"
+				name="course"
+				value="MCA"
+				checked={course.includes("MCA")}
+				onChange={handleCourseChange}
+			/>
+			<label for="MCA"> MCA </label>
+			<input
+				type="checkbox"
+				id="BCA"
+				name="course"
+				value="BCA"
+				checked={course.includes("BCA")}
+				onChange={handleCourseChange}
+			/>
+			<label for="BCA"> BCA </label>
+			<input
+				type="checkbox"
+				id="BSC"
+				name="course"
+				value="BSC"
+				checked={course.includes("BSC")}
+				onChange={handleCourseChange}
+			/>
+			<label for="BSC"> BSC </label>
+			<br />
 				{/* file upload */}
-				<label htmlFor="" className="m-1 text-red-600"><b>Upload Your Photo</b></label>
-				<br />
-				<input
-					accept="image/jpeg, image/png"
-					type="file"
-					name="image"
-					onChange={(e) => {
-						setImage(e.target.files[0]);
-					}}
-				/>
-				<br />
-
-				<button className="bg-blue-300 ml-12 rounded-lg m-3 p-3 font-bold" onClick={formHandle}>
-					Register Me
-				</button>
-			</div>
+			<label htmlFor="" className="font-eczar m-1 text-red-600"><b>Upload Your Photo</b></label>
+			<br />
+			<input
+				accept="image/jpeg, image/png"
+				type="file"
+				name="image"
+				onChange={(e) => {
+					setImage(e.target.files[0]);
+				}}
+			/>
+			<br />
+		
+			<button className="font-eczar bg-lime-400 ml-24 rounded-lg m-3 p-3 font-bold" onClick={formHandle}>
+				Register Employee
+			</button>
 		</div>
 		</div>
 		
