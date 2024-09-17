@@ -34,41 +34,41 @@ let storage = multer.diskStorage({
 let upload = multer({ storage });
 
 // registration form data handle
-app.post("/register", (req, res) => {
-	admin
-		.findOne({ email: req.body.email })
-		.then((user) => {
-			if (user !== null) {
-				res.json("email already registered..");
-			} else {
-				let dataForDB = new admin(req.body);
-				dataForDB
-					.save()
-					.then((data) => {
-						res.json("input stored in DB successfully...");
-					})
-					.catch((error) => res.json("data can not be saved , problem at saving time...."));
-			}
-		})
-		.catch(() => {
+app.post("/register", async (req, res) => {
+    const user= await admin.findOne({ email: req.body.email });
+    try { 
+        if(user){
+        res.json("email already registered..");
+        } 
+        else {
+        let dataForDB = new admin(req.body);
+        dataForDB.save().then((data) => {
+                res.json("input stored in DB successfully...");
+            })
+        .catch((error) => res.json("data can not be saved , problem at saving time...."));
+        }
+    } 
+	catch {
 			res.json("registration problem...");
-		});
+		}
 });
 
 //   handling Login Action
-app.post("/login", (req, res) => {
-	admin
-		.findOne({ email: req.body.email })
-		.then((user) => {
-			if (user.cnfPassword == req.body.password) {
+app.post("/login", async (req, res) => {
+    try {
+        const user1= await admin.findOne({ email: req.body.email });
+        if(user1){
+            if (user.cnfPassword == req.body.password) {
 				res.json({ status: "success", id: user._id });
 			} else {
 				res.json({ status: "fail" });
 			}
-		})
-		.catch(() => {
-			res.json({ status: "noUser" });
-		});
+        }
+    }
+    catch{
+        res.json({ status: "noUser" });
+        console.log(error);
+    }
 });
 
 // respond data to the Dashbord component

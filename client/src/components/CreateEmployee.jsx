@@ -6,7 +6,7 @@ const CreateEmployee = () => {
 	let [name, setName] = useState("");
 	let [email, setEmail] = useState("");
 	let [phone, setPhone] = useState();
-	let [designation, setDesignation] = useState();
+	let [designation, setDesignation] = useState("HR");
 	let [gender, setGender] = useState("");
 	let [course, setCourse] = useState([]);
 	let [image, setImage] = useState();
