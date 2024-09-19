@@ -56,21 +56,25 @@ app.post("/register", async (req, res) => {
 //   handling Login Action
 app.post("/login", async (req, res) => {
     try {
-        const user1= await admin.findOne({ email: req.body.email });
-        if(user1){
-            if (user.cnfPassword == req.body.password) {
-				res.json({ status: "success", id: user._id });
-			} else {
-				res.json({ status: "fail" });
-			}
+        // Find user by email
+        const user1 = await admin.findOne({ email: req.body.email });
+        
+        // Check if user exists
+        if (user1) {
+            // Compare passwords
+            if (user1.cnfPassword === req.body.password) {
+                res.json({ status: "success", id: user1._id });
+            } else {
+                res.json({ status: "fail" }); // Incorrect password
+            }
+        } else {
+            res.json({ status: "noUser" }); // User not found
         }
-    }
-    catch{
-        res.json({ status: "noUser" });
-        console.log(error);
+    } catch (error) {
+        // Handle error during the operation
+        res.status(500).json({ status: "error", message: "An error occurred during login.", error });
     }
 });
-
 // respond data to the Dashbord component
 app.get("/user/:ID", (req, res) => {
 	let ID = req.params.ID;

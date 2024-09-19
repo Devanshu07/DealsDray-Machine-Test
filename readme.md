@@ -12,3 +12,6 @@
 - run ```bash npm install -D tailwindcss``` to set up tailwind
 - now run the server with ```bash node index.js```
 - run the client with ```npm run dev``` 
+
+## Output
+- video link: https://drive.google.com/file/d/139BQDXFz6NCcw9KPOadCXddyGJqXyrVT/view?usp=sharing
